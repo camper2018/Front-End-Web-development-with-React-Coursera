@@ -38,3 +38,7 @@ n this exercise we added a new component to our React application,
 added data to its class,
 and then updated the app to show the information in the web page.
 
+React Components Week 2:
+In this exercise we learned how to structure the app into presentational and container components.
+1. Enable your presentational components to be concerned with the look and feel of your app
+2. Enable container components to deal with the state, provide the data and handle user interactions.
