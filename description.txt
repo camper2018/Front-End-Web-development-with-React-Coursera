@@ -27,3 +27,14 @@ class App extends Component {
     );
   }
 }
+
+Exercise (Instructions): React Components Part 1:
+In this exercise we added a new component to our React application,
+added data to its
+and then updated the app to show the information in the web page.
+
+Exercise React Components Part 2
+n this exercise we added a new component to our React application,
+added data to its class,
+and then updated the app to show the information in the web page.
+
