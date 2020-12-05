@@ -42,3 +42,8 @@ React Components Week 2:
 In this exercise we learned how to structure the app into presentational and container components.
 1. Enable your presentational components to be concerned with the look and feel of your app
 2. Enable container components to deal with the state, provide the data and handle user interactions.
+
+React life cycle methods:
+1. getSnapshotBeforeUpdate => This may be needed in situations, for example, when you're scrolling, you have this scrollbar in a component
+and you're scrolling and you want to remember the position of the scroll at the point
+so that when the component re-renders then you will retain that scrolling position, then that would be useful for saving the information.
