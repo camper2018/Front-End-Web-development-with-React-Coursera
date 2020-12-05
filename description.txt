@@ -47,3 +47,6 @@ React life cycle methods:
 1. getSnapshotBeforeUpdate => This may be needed in situations, for example, when you're scrolling, you have this scrollbar in a component
 and you're scrolling and you want to remember the position of the scroll at the point
 so that when the component re-renders then you will retain that scrolling position, then that would be useful for saving the information.
+
+Exercise: Functional Components:
+We reimplemented both the MenuComponent and DishdetailComponent as pure functional components.
