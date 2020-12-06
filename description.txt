@@ -54,3 +54,62 @@ We reimplemented both the MenuComponent and DishdetailComponent as pure function
 Exercise: Header and Footer:
 n this exercise we updated the React application to use Font Awesome and Bootstrap Social,
 and also integrated two new components, Header and Footer, into our application.
+First use yarn or npm to fetch Font Awesome and Bootstrap-social to the project by typing the following at the prompt:
+
+yarn add font-awesome@4.7.0
+yarn add bootstrap-social@5.1.1
+
+Then, open index.js file and update it as follows to enable your application to use Font Awesome and Bootstrap Social:
+
+import 'font-awesome/css/font-awesome.css';
+import 'bootstrap-social/bootstrap-social.css';
+
+Then add Header and Footer components.
+
+Exercise React Router:
+n this exercise we learned about installing, configuring and using the React Router for navigation within our React app:
+
+Objectives and Outcomes:
+In this exercise we learn to use the React Router to configure and set up navigation among various pages in a React application. At the end of this exercise you will be able to:
+
+Install and configure your application to use React Router
+Configure the routes for React router to enable you to navigate to various pages within your React application
+1.Installing and Configuring React Router
+  First install React Router into your project by typing the following at the prompt:
+  yarn add react-router-dom@4.2.2
+  Then, open App.js and update it as follows:
+  import { BrowserRouter } from 'react-router-dom';
+
+. . .
+
+    <BrowserRouter>
+      <div className="App">
+        <Main />
+      </div>
+    </BrowserRouter>
+. . .
+
+Add a Home Component:
+
+Create a new file named HomeComponent.js in the components folder and add the following to it:
+
+import React from 'react';
+
+function Home(props) {
+    return(
+      <div className="container">
+        <h4>Home</h4>
+      </div>
+    );
+}
+
+export default Home;
+
+Configuring the Router
+Open MainComponent.js file and update it
+Open HeaderComponent.js and update its contents
+Then, open FooterComponent.js and update it
+Open MenuComponent.js and remove the onClick() from the Card in the RenderMenuItem() function.
+Save all the changes and do a Git commit with the message "React Router".
+
+
