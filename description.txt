@@ -50,3 +50,7 @@ so that when the component re-renders then you will retain that scrolling positi
 
 Exercise: Functional Components:
 We reimplemented both the MenuComponent and DishdetailComponent as pure functional components.
+
+Exercise: Header and Footer:
+n this exercise we updated the React application to use Font Awesome and Bootstrap Social,
+and also integrated two new components, Header and Footer, into our application.
