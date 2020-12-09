@@ -118,6 +118,9 @@ In this exercise we will:
 2. Provide a way of navigating among various pages using the React router support.
 3. Integrate the DishdetailComponent into our single page application. We will use a route parameter in the URL to pass in the details of the selected dish to the DishdetailComponent. At the end of this exercise we will be able to configure the routes in our React router configuration to enable the use of route parameters within the URL to pass information to a component.
 
+Assignment 2 ReactRouter and Single Page Applications:
 
-
-
+Objectives and Outcomes:
+1. Integrated the AboutComponent given above into the single page application.
+2. Added a new functional component named <RenderLeader> through the RenderLeader() function to AboutComponent.js that renders the details of a given leader using the reactstrap <Media> component.
+3. Construct and render the list of leaders in the About Us page using the <RenderLeader> component implemented above.
