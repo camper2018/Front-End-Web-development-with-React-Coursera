@@ -112,6 +112,12 @@ Then, open FooterComponent.js and update it
 Open MenuComponent.js and remove the onClick() from the Card in the RenderMenuItem() function.
 Save all the changes and do a Git commit with the message "React Router".
 
+Exercise: Single Page Applications:
+In this exercise we will:
+1. Leverage the React router to enable the development of single page applications
+2. Provide a way of navigating among various pages using the React router support.
+3. Integrate the DishdetailComponent into our single page application. We will use a route parameter in the URL to pass in the details of the selected dish to the DishdetailComponent. At the end of this exercise we will be able to configure the routes in our React router configuration to enable the use of route parameters within the URL to pass information to a component.
+
 
 
 
