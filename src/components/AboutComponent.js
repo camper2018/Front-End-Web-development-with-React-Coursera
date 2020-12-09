@@ -11,19 +11,19 @@ import { Link } from "react-router-dom";
 
 function RenderLeader({ leader }) {
   return (
-    <div className="media">
-      <img
+    <Media>
+      <Media
         className="d-flex mr-4 img-thumbnail"
+        object
         src={leader.image}
         alt="leader.name"
       />
-      <div className="media-body">
-        <h2 className="mt-0">{leader.name}</h2>
+      <Media body className="mt-0">
+        <Media heading>{leader.name}</Media>
         <p>{leader.designation}</p>
-
         <p className="d-none d-sm-block">{leader.description}</p>
-      </div>
-    </div>
+      </Media>
+    </Media>
   );
 }
 function About(props) {
