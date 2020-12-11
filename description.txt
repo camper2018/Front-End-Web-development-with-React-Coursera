@@ -124,3 +124,7 @@ Objectives and Outcomes:
 1. Integrated the AboutComponent given above into the single page application.
 2. Added a new functional component named <RenderLeader> through the RenderLeader() function to AboutComponent.js that renders the details of a given leader using the reactstrap <Media> component.
 3. Construct and render the list of leaders in the About Us page using the <RenderLeader> component implemented above.
+
+Exercise Controlled Forms:
+
+In this exercise we have learnt how to create a controlled form within our React application.
