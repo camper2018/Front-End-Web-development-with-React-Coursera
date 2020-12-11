@@ -73,13 +73,20 @@ class Contact extends Component {
     const reg = /^\d+$/;
     if (this.state.touched.telnum && !reg.test(telnum))
       errors.telnum = "Tel. Number should contain only numbers";
+    else if (
+      this.state.touched.telnum &&
+      (telnum.length < 10 || telnum.length > 10)
+    )
+      errors.telnum = "Tel. Number should have 10 digits";
 
+    const reg2 = /^\S+@[a-z]+.[a-z]{3}$/;
     if (
       this.state.touched.email &&
       email.split("").filter((x) => x === "@").length !== 1
     ) {
       errors.email = "Email should contain a @";
-    }
+    } else if (this.state.touched.email && !reg2.test(email))
+      errors.email = "Please enter valid email id";
     return errors;
   }
   render() {
