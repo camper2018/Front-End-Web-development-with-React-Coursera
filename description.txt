@@ -128,3 +128,6 @@ Objectives and Outcomes:
 Exercise Controlled Forms:
 
 In this exercise we have learnt how to create a controlled form within our React application.
+
+Exercise Controlled Form Validation:
+In this exercise you have learnt about doing simple form validation for controlled forms in React.
