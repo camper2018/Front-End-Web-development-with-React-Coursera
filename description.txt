@@ -131,3 +131,12 @@ In this exercise we have learnt how to create a controlled form within our React
 
 Exercise Controlled Form Validation:
 In this exercise you have learnt about doing simple form validation for controlled forms in React.
+
+Exercise: Uncontrolled Forms:
+n this exercise we learnt to use an uncontrolled component approach to add a form to our React application.
+
+1. Adding a Modal to Host the Form
+2. Then, add a button to the Navbar to enable toggling the modal
+3. Adding the Uncontrolled Form to the modal body
+4. Then, add the handleLogin function to the class to handle the form submission
+In order to retrieve form elements data from dom into our react appliation, we use ref attribute.Since we are using reactstrap and it also uses ref attribute for some other purpose, we will use innerRef to  help React differentiate it from reactstrap ref.
