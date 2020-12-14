@@ -126,11 +126,10 @@ Objectives and Outcomes:
 3. Construct and render the list of leaders in the About Us page using the <RenderLeader> component implemented above.
 
 Exercise Controlled Forms:
-
 In this exercise we have learnt how to create a controlled form within our React application.
 
 Exercise Controlled Form Validation:
-In this exercise you have learnt about doing simple form validation for controlled forms in React.
+In this exercise you have learnt about doing simple client site form validation for controlled forms in React.
 
 Exercise: Uncontrolled Forms:
 n this exercise we learnt to use an uncontrolled component approach to add a form to our React application.
@@ -140,3 +139,34 @@ n this exercise we learnt to use an uncontrolled component approach to add a for
 3. Adding the Uncontrolled Form to the modal body
 4. Then, add the handleLogin function to the class to handle the form submission
 In order to retrieve form elements data from dom into our react appliation, we use ref attribute.Since we are using reactstrap and it also uses ref attribute for some other purpose, we will use innerRef to  help React differentiate it from reactstrap ref.
+
+Description Forms Controlled vs Uncontrolled components:
+Normally, form elements in HTML maintain their own state within DOM and update it based on user input.
+A Controlled component makes the React component itself control the form that it renders.
+That is, it way of setting up forms in your React Application whereby your form information is directly tied into the state of your React component that is hosting the form instead of DOM.
+So, any changes that you make to your form imports will be immediately reflected into the state of your React component.
+The ContactComponent in our app is a controlled component.
+Uncontrolled forms:
+Ideally whenever we implement forms within out react application, we should implement them inside controlled components.
+But there are many situations where we may not wish to go through all the expensive set up that we did for the control forms in the control components.
+And also there may be situations where we may wish to just let the form information be handled by the DOM itself
+As we realize any HTML form elements state is already tracked by the DOM.
+So maybe in simple setup, we would be happy with letting the DOM track the form state, and then retrieve that directly from the form.
+So how do we retrieve this information?
+Now every, DOM form element has a ref associated with it, from which we can easily use that to extract their HTML form data into our application.
+We need to tie in a function there to enable us to retrieve that information into our application.
+Now this approach of using uncontrolled forms is a lot more easier in situations when we are mixing our React application code with non-React code.
+So maybe we have a project that is already setup with some non-React part, and then we're adding in React components or React elements to that project to set up some parts of the project.
+In that case, setting up uncontrolled forms where it interacts with the rest of your non-React code is more easier.
+
+Exercise (Instructions): Introduction to Redux
+In this exercise we learned to install and configure Redux and use it in your React application.
+
+1 First install Redux and React-Redux into our application.
+  yarn add redux@3.7.2
+  yarn add react-redux@5.0.7
+
+2. Next, create a folder named redux in the src folder and then add a file named reducer.js
+3. Then, add a file named configureStore.js in the redux folder
+4. Next, open App.js and update it.
+5. Finally, update MainComponent.js to connect it to Redux store and use it:

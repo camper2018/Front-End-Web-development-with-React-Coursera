@@ -36,9 +36,7 @@ const Menu = (props) => {
           <BreadcrumbItem>
             <Link to="/home">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbItem active>
-            <Link to="/menu">Menu</Link>
-          </BreadcrumbItem>
+          <BreadcrumbItem active>Menu</BreadcrumbItem>
         </Breadcrumb>
         <div className="col-12">
           <h3>Menu</h3>
