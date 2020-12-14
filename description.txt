@@ -169,4 +169,30 @@ In this exercise we learned to install and configure Redux and use it in your Re
 2. Next, create a folder named redux in the src folder and then add a file named reducer.js
 3. Then, add a file named configureStore.js in the redux folder
 4. Next, open App.js and update it.
-5. Finally, update MainComponent.js to connect it to Redux store and use it:
+5. Finally, update MainComponent.js to connect it to Redux store and use it.
+
+React Redux Forms:
+The react-redux-form provides us with a lot of features that enable us to leverage redux for our form persistence and also form validation.
+What exactly is React-Redux-Form?
+It is a versatile, fast and intuitive library for creating complex and performant forms in React using Redux.
+The React-Redux-Form itself persist the state of our form into a model in the redux store.
+And React-Redux-Form also provides a collection of reducer creators and action creators for us that enables us to do all this work for us without writing much code.
+Now that's where the React-Redux-Form takes care of all the grunt work behind persisting the form in the Redux store.
+Why would you need that?
+Say, for example, we are on a view and we're filling out a form and then we navigate out of the view.
+Very often when we have standard react components, when we move out of a view, the state of the, whatever local state that you stored in that component will get destroyed.
+And so when we return to the same view, if we had filled up a form, the form would remain unfilled.
+Suppose we want to persist the state of the form even across page reloads or as we navigate in and out of a view,
+then React-Redux-Form would be of use to us.
+So, this is achieved by the form data being stored in the redux in a model.
+And all the details of how this persistence is done is automatically taken care of by React-Redux-Form without us needing to do any reducer functions or the action creators on our behalf.
+And also, React-Redux-Form brings in its own support for validation as we will see in one of the exercises that follows this lecture.
+If we want to use React-Redux-Form purely for its form validation and not require the form data to be persistent in the redux store, instead if we want it to be persistent in the local state of the component, then we can simply use a local form that is also supported by React-Redux-Form to create forms.
+This is suitable when we don't need persistence across component mounting/unmounting in our application. So, that's the advantage of using local forms.
+
+Exercise (Instructions): React Redux Form
+In this exercise we converted the controlled form that we created earlier into a form supported by react-redux-form.
+1. We first install the react-redux-form into our project:
+   yarn add react-redux-form@1.16.8
+2. Then open ContactComponent.js and update the Feedback Form to use react-redux-form.
+
