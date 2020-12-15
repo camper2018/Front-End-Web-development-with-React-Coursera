@@ -196,3 +196,5 @@ In this exercise we converted the controlled form that we created earlier into a
    yarn add react-redux-form@1.16.8
 2. Then open ContactComponent.js and update the Feedback Form to use react-redux-form.
 
+React Redux Form Validation
+In this exercise we learned about implementing simple form validation in ContactComponent.js using react-redux-form.
