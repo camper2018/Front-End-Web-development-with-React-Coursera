@@ -12,6 +12,7 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import { connect } from "react-redux";
+import { addComment } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
   // maps redux store state to props and make it available for use.
@@ -22,7 +23,11 @@ const mapStateToProps = (state) => {
     leaders: state.leaders,
   };
 };
-
+const mapDispatchToProps = (dispatch) => ({
+  // dispatch is a method available from store
+  addComment: (dishId, rating, author, comment) =>
+    dispatch(addComment(dishId, rating, author, comment)),
+});
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +62,7 @@ class Main extends Component {
           comments={this.props.comments.filter(
             (comment) => comment.dishId === parseInt(match.params.dishId, 10)
           )}
+          addComment={this.props.addComment}
         />
       );
     };
@@ -84,4 +90,4 @@ class Main extends Component {
   }
 }
 // if we are using the React Router, then in order to connect the component to the React Router, we need to surround it with the withRouter.
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

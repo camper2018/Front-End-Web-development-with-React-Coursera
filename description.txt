@@ -229,4 +229,28 @@ The user should be alerted by showing the invalid message displayed at the botto
 Exercise (Instructions): Combining Reducers
 In this exercise we have learnt to split the reducer into multiple reducers that manage partial state, and then combine them together.
 
+Exercise (Instructions): Redux Actions:
+In this exercise, we're going to create our first action,
+where by the comment that you submit will be added into the list of comments for our application.
+So, we will modify by introducing a new action for our application, which we'll take the comment and then add it into the comments field.
+So, this requires us to change the state of our application.
+So, we need an action that enables us to change the state of our application in the Redux store.
+So, when we submit the comment, we'll see that the submission of the comment will trigger action to be sent to your redux store,
+and then this action will result in the comment being added into the comments part of the state of our redux store,
+and then when the changes, then that will result in the store emitting a change,
+and that will result in our main component going and getting the updated state from the redux store,
+and then the main component passes the new state to all the chilled components,
+and then the RenderComments component realizes that the comments part has changed, so it will have to be rendered.
+So, react takes care of re rendering that with new the comment added into the list there.
+
+Objectives and Outcomes:
+In this exercise we will learn to define various Redux actions and implement the action creators to dispatch the actions to the Redux store. At the end of this exercise you will be able to:
+Define Redux actions and implement the action creators
+Dispatch actions from the action creators to update the system state in the Redux store
+1. Creating Actions:
+  In the redux folder create a new file named ActionTypes.js
+  Then, create a file named ActionCreators.js
+2. Next, update comments.js to initiate action when the action is dispatched by the ActionCreator
+3. Now update MainComponent.js to make the action available for use within the DishdetailComponent
+4. Finally, update DishdetailComponent.js to initiate the action upon the user submitting the comment form.
 
