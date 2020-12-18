@@ -225,3 +225,8 @@ In this task, you will enable form validation as shown in the images below. You 
 The author field should at least be three characters long.
 The author field should be less than or equal to 15 characters.
 The user should be alerted by showing the invalid message displayed at the bottom of the field.
+
+Exercise (Instructions): Combining Reducers
+In this exercise we have learnt to split the reducer into multiple reducers that manage partial state, and then combine them together.
+
+
