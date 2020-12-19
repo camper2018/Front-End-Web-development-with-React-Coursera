@@ -330,3 +330,19 @@ Use a logger middleware to print a log of actions initiated on the Redux store.i
 8. Open DishdetailComponent.js and update it.
 9. Open HomeComponent.js and update it
 10.Finally, update MenuComponent.js
+
+Exercise (Instructions): React-Redux-Form Revisited:
+In this exercise we explored the interaction between react-redux-form and the Redux store.
+We learned how to map the form into the store so that the state of the form will be persisted in the store.
+1.Update the Feedback Form:
+  Add a new file named forms.js in the redux folder
+  Then, open configureStore.js and update it to add the form to the reducers
+  Next, open MainComponent.js and update it
+  Open CommentComponent.js and update it.
+Description:
+In the React-Redux-Form lesson in the previous module, we learned how to use the React-Redux-Form Package
+and we saw how we can make use of the local form to create a React-Redux-Form in our application,
+and then we saw that the state is mapped into the local state of the component.
+Now, if we want to make use of the full power of the React-Redux-Form whereby the form state is persisted in the Redux store instead of in the components state,
+then we need to update our form to make use of the regular form rather than the local form from the React-Redux-Form.
+So in this exercise, we updated our application in the contactComponent to enable us to make use of the full power of React-Redux-Form.
