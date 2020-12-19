@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import { Loading } from "./LoadingComponent";
 
 // CommentForm Component implementation
 const required = (val) => val && val.length;
@@ -141,21 +142,19 @@ class CommentForm extends Component {
   }
 }
 
-function RenderDish({ dish }) {
-  if (dish != null) {
+function RenderDish(props) {
+  if (props.dish != null) {
     return (
       <div className="col-12 col-md-5 m-1">
-        <Card key={dish.id}>
-          <CardImg top src={dish.image} alt={dish.name} />
+        <Card key={props.dish.id}>
+          <CardImg top src={props.dish.image} alt={props.dish.name} />
           <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
+            <CardTitle>{props.dish.name}</CardTitle>
+            <CardText>{props.dish.description}</CardText>
           </CardBody>
         </Card>
       </div>
     );
-  } else {
-    return <div></div>;
   }
 }
 function RenderComments({ comments, addComment, dishId }) {
@@ -184,8 +183,25 @@ function RenderComments({ comments, addComment, dishId }) {
     </div>
   );
 }
+
 const DishDetail = (props) => {
-  if (props.dish !== null) {
+  if (props.isLoading) {
+    return (
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
+      </div>
+    );
+  } else if (props.errorMsg) {
+    return (
+      <div className="container">
+        <div className="row">
+          <h4>{props.errorMsg}</h4>
+        </div>
+      </div>
+    );
+  } else if (props.dish !== null) {
     return (
       <div className="container">
         <div className="row">
@@ -212,6 +228,8 @@ const DishDetail = (props) => {
         </div>
       </div>
     );
+  } else {
+    return <div></div>;
   }
 };
 

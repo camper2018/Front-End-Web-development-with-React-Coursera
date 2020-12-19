@@ -254,3 +254,79 @@ Dispatch actions from the action creators to update the system state in the Redu
 3. Now update MainComponent.js to make the action available for use within the DishdetailComponent
 4. Finally, update DishdetailComponent.js to initiate the action upon the user submitting the comment form.
 
+Redux Thunk: Objectives and Outcomes:
+Redux Thunk middleware allows you to write action creators that return a function instead of an action. In this lesson you will see the use of redux thunk to return a function.
+At the end of this lesson we will be able to:
+
+Use Redux Thunk middleware to return a function instead of an action
+Use a logger middleware to print a log of actions initiated on the Redux store.
+
+The Redux Middleware provides the capability to run a code after an action is dispatched, before it reaches the reducer.
+Now once an action reaches the reducer, the reducer will act on the action and make changes to the state of the store.
+So before that point, we can intercept action and effect some changes before the action reaches the reducer.
+So this is a place which enables third party extensions to be injected into your Redux application.
+So for example, if you want to log all the actions that have been dispatched,
+that is a good point for you to first capture the action,
+log what the action is and then let it move on to the reducer,
+and then you can then log the state of the application after the action is effected.
+Similarly, if we want to allow asynchronous API calls, so for example,
+we dispatch an action but the action would initially require access to a server from where we fetch the data and then send the data into your Redux store.
+Then that is also a good place to interject a middleware in order to intercept the action and then carry out basing API call and then let the action proceed forward into the store.
+Middleware forms a pipeline that wraps around the dispatch,
+then it can make any changes there and it can pass that action forward.
+If it requires, it can restart the dispatch pipeline as it is required.
+And not only that, at that point, you even get access to the store state.
+If you want to look at the store state and then make any modifications before you let the action pass through.
+So here are the few examples of things that you can do with the middleware that you interject into your Redux application.
+So the middleware can be typically used for:
+1. Inspecting the actions and the state.
+2. Modify actions
+3. Dispatch other actions and then wait for the results from those actions before you allow this particular action to take place.
+4. Stop an action from reaching the reducers etc
+The applyMiddleware() function of redux sets up amiddleware pipeline and returns a store enhancer that is passed to createStore().
+What is a Thunk in programming?
+Thunk is a subroutine that is used to inject an additional calculation into another subroutine.
+So this is a way to delay a calculation until its result is needed
+and also allows you to insert operations at the beginning or the end of another subroutine.
+A Redux Thunk is a middleware that allows you to write an action creator that will return a function instead of an action object.
+Then that function can be executed and within that function, you can design it in such a way that you can use it to :
+1. delay the dispatch of an action until a certain condition is met
+   eg if you want to do a synchronous API call to a server, you may use a thunk in order to generate a synchronous API call,
+   and then when the server replies and you receive the reply, at that point you can let the action proceed forward and then make modifications to the store.
+2. Dispatch only if certain condition is met.
+
+The inner function that you define inside a thunk gets access to both the dispatch() as well as getState()from store.
+What does this permit you to do? Because you have access to get state, you can examine the state and then see if this action fits and can be allowed with the current state. So that would allow you to even modify the action, and also you'll get access to dispatch.
+So for example, you can stop the current action, do something else, come back and then dispatch the action into the reducers.
+It also allows you to do complex synchronous logic.
+1. Multiple dispatches
+2. Conditionl dispatches
+3. Simple async logic
+So for example with one action, you can actually end up dispatching multiple dispatches and may cause multiple effects if that is what you intend to do.
+You can even do conditional dispatch depending on the condition.
+So for example, if you issue an synchronous API call to the server, and if the server returns the result successfully,
+then you can dispatch one action to the reducer.
+If the API call returns a failure, then you can dispatch a different action to the reducer to make changes to the state accordingly.
+
+If you want a more powerful way of doing things like complex async logics, then we have access to another library called a Redux Saga.
+A Redux Saga allows you to use ES6 generators to generate pausable functions.
+And also, the saga allows ongoing background thread like operations or processing behavior if you so require.
+So complex react applications that require that kind of behavior would definitely benefit by using a Redux Saga in the place of a Redux Thunk.
+
+Exercise (Instructions): Redux Thunk:
+Objectives:
+Use Redux Thunk middleware to return a function instead of an action
+Use a logger middleware to print a log of actions initiated on the Redux store.i.e log all the changes that we caused to the Redux store into our console.
+
+1. Install Redux Thunk and Logger.
+  yarn add redux-thunk@2.2.0
+  yarn add redux-logger@3.0.6
+2. Then open configureStore.js and update it to use the Thunk and Logger
+3. Next, open ActionTypes.js and add new action types
+4. Then open ActionCreators.js and add new actions:
+5. Next, open dishes.js and add the code to respond to actions.
+6. Add a new component named LoadingComponent.js to display a loading message:
+7. Now we will update the remaining components to use the actions. First, open MainComponent.js and update it
+8. Open DishdetailComponent.js and update it.
+9. Open HomeComponent.js and update it
+10.Finally, update MenuComponent.js
