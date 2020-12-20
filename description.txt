@@ -444,6 +444,16 @@ At the end of this exercise we will be able to:
   So the only images that we will use from locally is the logo that obviously is not going to keep changing all the time.
   So that would be, the only local image that we will use from the assets folder in the public folder.Rest of the images will be loaded from server.
 
+Exercise (Instructions): Fetch Handling Errors:
+
+Objectives and Outcomes
+In this exercise we will learn how to handle errors encountered while communicating with the server.
+At the end of this exercise we will be able to:
+Configure our app to appropriately handle errors encountered while communicating with the server.
+
+1. Open ActionCreators.js and update it.
+
+
 Exercise (Instructions): Fetch Post Comment:
 
 Objectives and Outcomes:
