@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { baseUrl } from "../shared/baseUrl";
 import {
   Card,
   CardImg,
@@ -147,7 +148,7 @@ function RenderDish(props) {
     return (
       <div className="col-12 col-md-5 m-1">
         <Card key={props.dish.id}>
-          <CardImg top src={props.dish.image} alt={props.dish.name} />
+          <CardImg top src={baseUrl + props.dish.image} alt={props.dish.name} />
           <CardBody>
             <CardTitle>{props.dish.name}</CardTitle>
             <CardText>{props.dish.description}</CardText>

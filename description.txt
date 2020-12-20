@@ -346,3 +346,123 @@ and then we saw that the state is mapped into the local state of the component.
 Now, if we want to make use of the full power of the React-Redux-Form whereby the form state is persisted in the Redux store instead of in the components state,
 then we need to update our form to make use of the regular form rather than the local form from the React-Redux-Form.
 So in this exercise, we updated our application in the contactComponent to enable us to make use of the full power of React-Redux-Form.
+
+Exercise (Instructions): Setting up a Server using json-server:
+
+Objectives and Outcomes
+The Node module, json-server, provides a very simple way to set up a web server that supports a full-fledged REST API server.
+It can also serve up static web content from a folder.
+This lesson we will leverage these two features to provide the back-end for our React application.
+In this exercise, we will configure and start a server using json-server to enable serving our application data to our React application.
+At the end of this exercise, we will be able to:
+
+Configure and start a simple server using the json-server module
+Configure our server to serve up static web content stored in a folder named public.
+
+1.Installing json-server:
+  json-server is a node module, and hence can be installed globally by typing the following at the command prompt:
+
+  npm install json-server -g
+
+2.Configuring the Server:
+  At any convenient location on your computer, create a new folder named json-server, and move to this folder.
+  Download the db.json file provided above to this folder.
+  Move to this folder in your terminal window, and type the following at the command prompt to start the server:
+
+  json-server --watch db.json -p 3001 -d 2000
+
+  The reason for using this watch flag is that?
+  This json-server will keep a watch on the db.jason file and anytime the db.jason file is modified.
+  It'll reload the db.jason file and start serving up that modified data from the server.
+  In addition, we can also give it -d flag, with a value, say for example, 2000.
+  Which means that when the server receives a request, it will serve the data back to the requester after a two second delay.
+  Now this would be used to simulate delay in accessing a server over the Internet.
+  And another flag, -p 3001, though specify that the json-server should run at both number 3001.
+  The default port number is 3000 for the json-server.
+  But since our application is running at port number 3000, so we chose to run the json-server at port number 3001.
+  This should start up a server at port number 3001 on your machine.
+
+  The data from this server can be accessed by typing the following addresses into your browser address bar:
+  http://localhost:3001/dishes
+  http://localhost:3001/promotions
+  http://localhost:3001/leaders
+  http://localhost:3001/feedback
+
+  Type these addresses into the browser address and see the JSON data being served up by the server.
+  This data is obtained from the db.json file.
+  The json-server also provides a static web server.
+  Any resources that you put in a folder named public in the json-server folder above, will be served by the server at the following address:
+
+  http://localhost:3001/
+
+  Shut down the server by typing ctrl-C in the terminal window.
+
+3.Serving up the Images:
+  Create a public folder in your json-server folder.
+  Download the images.zip file that we provide above, unzip it and move the images folder containing the images to the public folder.
+  Restart the json-server as we did before.
+  Now your server will serve up the images for our React app.
+  You can view these images by typing the following into your browser address bar:
+
+  http://localhost:3001/images/<image name>.png
+
+Exercise (Instructions): Fetch from Server:
+
+Objectives and Outcomes
+In this exercise we will incorporate Fetch into our React app and then use it to communicate with the REST API server.
+At the end of this exercise we will be able to:
+1. Incorporate Fetch into your React app
+2. Use Fetch to communicate with the REST API server
+
+1. Fetch
+  As a first step, let us install Fetch into our project:
+  yarn add cross-fetch@2.1.0
+
+  Now that we have installed Fetch, let us configure our application to connect to the server.
+  First, create a file named baseUrl.js in the shared folder and add the following to it:
+  export const baseUrl = 'http://localhost:3001/';
+  This is really beneficial,let's say if my server is running at a different location, I would have a single place where I need to update the server address and don't need to go to change the rest of my application.
+
+  Make sure that the json-server is running and serving up the data as illustrated in the previous exercise
+  Next, open ActionTypes.js and update it as follows:
+
+  export const ADD_COMMENTS = 'ADD_COMMENTS';
+  export const COMMENTS_FAILED = 'COMMENTS_FAILED';
+  export const PROMOS_LOADING = 'PROMOS_LOADING';
+  export const ADD_PROMOS = 'ADD_PROMOS';
+  export const PROMOS_FAILED = 'PROMOS_FAILED';
+
+  Then, open ActionCreators.js and update it
+  Similarly, open promotions.js and update it
+  Now that the Redux actions are all updated, it's time to update the components.
+  Open MainComponent.js and update it
+  Then, open MenuComponent.js and update it
+  Then, open HomeComponent.js and update it
+  Then, open DishdetailComponent.js and update it
+
+  All the images required for the dishes, the promotions and the leaders, will be now also fetched from the server site.
+  So the only images that we will use from locally is the logo that obviously is not going to keep changing all the time.
+  So that would be, the only local image that we will use from the assets folder in the public folder.Rest of the images will be loaded from server.
+
+Exercise (Instructions): Fetch Post Comment:
+
+Objectives and Outcomes:
+
+In this exercise we will learn how to configure Fetch to be able to post data to the server.
+At the end of this exercise we will be able to:
+Configure Fetch to post data (comments) to the server
+Receive and process the response to the POST operation on the server.
+The modification of the data on the server site is in turn when Fetched by and then pushed into our Redux store, so that the update is reflected into our Redux store and thereafter, reflected into our view, when the Redux store gets updated.
+
+1. Posting a Comment:
+  Open ActionCreators.js and update it
+
+  Open comment.js and remove 2 lines from it:
+  comment.id = state.comments.length;
+  comment.date = new Date().toISOString();
+
+  Open MainComponent.js and update it.
+
+  Finally, open DishdetailComponent.js and update it
+
+
