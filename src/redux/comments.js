@@ -25,8 +25,6 @@ export const Comments = (
       };
     case ActionTypes.ADD_COMMENT:
       var comment = action.payload;
-      comment.id = state.comments.length;
-      comment.date = new Date().toISOString();
       // concat() is an immutable action as it doesn't change the existing array but creates a new array
       return { ...state, comments: state.comments.concat(comment) };
     default:
