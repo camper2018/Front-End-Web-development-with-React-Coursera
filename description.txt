@@ -561,3 +561,20 @@ Implement simple animation using the react-transition-group
    yarn add react-transition-group@2.3.0
 2. Configure CSS classes for use in animation. Open App.css and add classes.
 3. Then, open MainComponent.js and add in code to configure the animation.
+
+Exercise (Instructions): React Animation Components:
+Objectives and Outcomes
+In this exercise you will learn to use react-animation-components to add more subtle animations to your React app. At the end of this exercise you will be able to:
+
+Use react-animation-components to add more subtle animations to your React app.
+
+1. Install react-animation-components into your React app as follows:
+yarn add react-animation-components@3.0.0
+
+Since this also requires prop-types so add that too as follows:
+yarn add prop-types@15.6.0
+
+2. Open HomeComponents.js and update it.
+3. Open DishdetailComponents.js and update it.
+
+
