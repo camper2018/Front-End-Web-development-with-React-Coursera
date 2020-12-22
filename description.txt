@@ -487,4 +487,77 @@ The modification of the data on the server site is in turn when Fetched by and t
 
   Finally, open DishdetailComponent.js and update it
 
+React Anumations:
+There are several react animation libraries available, we will use  React-transition-group and React-animation-components.
+The React-transition-group supports React animations through a set of CSS transitions that we can express using CSS classes.
+Now, the React-transition-group used to be part of React in some of the very old versions of React, but there after has been separated out into its own NPM module called as React-transition-group.
+So, now if you want to use it in your React application unit, explicitly install that and then make use of it in your application.
+So, how does React-transition-group work?
+The React-transition-group provides a set of components that enable you to manage components tips including mounting and unmounting.
+So, they help to recognize when components are getting mounted and unmounted, and then they are designed specifically with animation in mind.
+The components supported by the React-transition-group include a transition, a CSS transition, and a TransitionGroup, each meant for a specific purpose.
+The transition is a generic transition and it lets you describe a transition from one component state to another component state over time.
+Now, when you define component state, the transition component has four states that it goes through: the entering, the entered, the exiting and exited state.
+So, whatever you put inside the transition component, you will apply the corresponding transitions when the enclosing children are being rendered, or mounted, and then unmounted.
+So on that point, the transitions are applied.
+So, this is used for animating the mounting and unmounting of a component, or the children that you enclose inside your transition component.
+Now, here, the transition when you apply, uses a in prop which is used to toggle the transition state.
+So, when the in prop goes from false to true, then you begin the sequence of state transitions from entering to the entered state.
+Similarly, when you turn the in prop from true to false, then you are triggering the exiting state first and then on the exited state.
+Now, you can specify a time out period for the time the transition dwells in the entering state before it enters the entered state.
+So, once it is in the entered state, the transition is complete and then your component is tably shown, and when you are unmounting the component,
+then it will also trigger the exiting state and then the exited state in that sequence.
+So, you can specify the time out for it.
+he CSS transition is something that you apply together with the transition.
+The CSS transition applies a pair of CSS classes during the appear, enter, and exit stages of that transition.
+Now, this also uses the in prop to decide which transition class to apply.
+As an example, if you are applying the CSS transition to list items in a list, you would specify something like this.
+<CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+Should define .page-enter, .page-enter-active, .page-exit, .page-exit-active CSS classes within .css file.
+If you're applying it to a specific item, not in a list, but a generic React element,
+then you will say CSS transition, and then you have explicitly specified the in prop for the CSS transition,
+and the in prop, you'll specify some value to it and when the value turns to true,
+then you go from the entering to the entire state and then similarly, from the exiting to the exit state when the in prop goes from true to false.
+So, for example, in the above example, we give a classNames as page. What this means is that, it will take four CSS classes which you will define in your CSS5.
+The four classes would be page enter, page interactive, page exit, and page exit active.
+Now, the page enter will be applied when you go into the entering state,
+and then when you reach the entered state, the page enter-active will be applied,
+and the page exit and exit-active as you would expect.
+These CSS classes have to be specified, and within those CSS classes, you'll specify what kind of transition you want to cause.
+You can change the opacity, you can do the transformation, so x and y transformation on your elements and so on can be applied.
+The transition group is the component that the React-transition-group supports.
+The transition group manages a set of transitions that you apply to a list.
+So, if you are applying to a list, then you know that the list items may come in and go and so on.
+So, for example, if you have a long list and then you add a new item to the list and you wanted to animate the entering of the new item into that list,
+then the management of that, by using the transition class, that if you enclose the entire list in a transition group and then apply the transition to each list item,
+then the "in" property of the transition and the returning of the in prop to true and false will be controlled by the transition group.
+So, it automatically toggles the in prop for the components that are enclosed inside it.
+So, if you apply to a list each list item, the in prop will be toggled as required.
+So, if you add a new item into the list, let's say, for example, your data changed and a new item just got added into the list, the new item will animate itself into the list in the view by using the TransitionGroup.
+We will use TransitionGroup for transiting between the various views when I navigate using my React cloud or so from a single page application.
+The sliding in of the views is exactly caused by the TransitionGroup and the CSS transition.
+React-animation-components is yet another package that supports animations.
+t supports a set of react components.
+React animation components are themselves implemented using React-transition-group, and so they have packaged these into a set of easily usable components that apply certain properties.
+ So, these provide drop in animation features for your application and they make use of the GPU for accelerating these animations.
+Now, the animation components that are supported by the React animation components include Fade, Transform and FadeTransform.
+So, you can apply the fade component to do a fade on a React element, fade in or out.
+You can do transform to transform the component x and y transforms on the component or the size and so on can be controlled by using the transform component,
+and fade transform allows you to do both fade and transform together at the same time.
+Now, similarly, for a list item for example, you have wrapper components called Stagger, Random and Loop.
+If you apply Stagger to a list of items, the items will stagger into the list, so when the list is being laid out on the screen, the items will be laid out staggered on the screen.
+The Random will randomly add delays when you're rendering items in a list and that's it.
+The Loop will essentially loop through and perform the animations continuously.
+So, for example, if you apply a loop on inside that you apply a fade animation component, the item, the React element that you enclose inside will be fading in and out, and in and out continuously.
 
+Exercise (Instructions): React Animations:
+Objectives and Outcomes
+In this exercise you will learn to implement animations in your React app using react-transition-group. At the end of this exercise you will be able to:
+
+Configure your app to use react-transition-group for animations
+Implement simple animation using the react-transition-group
+
+1. Install react-transition-group in your React project:
+   yarn add react-transition-group@2.3.0
+2. Configure CSS classes for use in animation. Open App.css and add classes.
+3. Then, open MainComponent.js and add in code to configure the animation.
