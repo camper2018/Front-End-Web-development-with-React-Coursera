@@ -13,6 +13,8 @@ import {
   fetchDishes,
   fetchComments,
   fetchPromos,
+  fetchLeaders,
+  postFeedback,
 } from "../redux/ActionCreators";
 import { actions } from "react-redux-form";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -30,6 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
   // dispatch is a method available from store
   postComment: (dishId, rating, author, comment) =>
     dispatch(postComment(dishId, rating, author, comment)),
+  postFeedback: (feedback) => dispatch(postFeedback(feedback)),
   fetchDishes: () => {
     dispatch(fetchDishes());
   },
@@ -42,6 +45,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPromos: () => {
     dispatch(fetchPromos());
   },
+  fetchLeaders: () => {
+    dispatch(fetchLeaders());
+  },
 });
 class Main extends Component {
   constructor(props) {
@@ -51,6 +57,7 @@ class Main extends Component {
     this.props.fetchDishes();
     this.props.fetchComments();
     this.props.fetchPromos();
+    this.props.fetchLeaders();
   }
   render() {
     const HomePage = () => {
@@ -66,7 +73,11 @@ class Main extends Component {
           }
           promosLoading={this.props.promotions.isLoading}
           promosErrorMsg={this.props.promotions.errorMsg}
-          leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+          leader={
+            this.props.leaders.leaders.filter((leader) => leader.featured)[0]
+          }
+          leadersLoading={this.props.leaders.isLoading}
+          leadersErrorMsg={this.props.leaders.errorMsg}
         />
       );
     };
@@ -114,7 +125,10 @@ class Main extends Component {
                 exact
                 path="/contactus"
                 component={() => (
-                  <Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+                  <Contact
+                    resetFeedbackForm={this.props.resetFeedbackForm}
+                    postFeedback={this.props.postFeedback}
+                  />
                 )}
               />
               <Redirect to="/home" />
