@@ -62,7 +62,9 @@ class CommentForm extends Component {
                 <Label htmlFor="rating" sm={12}>
                   Rating
                 </Label>
+
                 <Col sm={12}>
+                  {/* eslint-disable-next-line */}
                   <Control.select
                     model=".rating"
                     name="rating"
@@ -82,6 +84,7 @@ class CommentForm extends Component {
                   Your Name
                 </Label>
                 <Col sm={12}>
+                  {/* eslint-disable-next-line */}
                   <Control.text
                     model=".author"
                     id="author"
@@ -112,6 +115,7 @@ class CommentForm extends Component {
                   Comment
                 </Label>
                 <Col sm={12}>
+                  {/* eslint-disable-next-line */}
                   <Control.textarea
                     model=".comment"
                     id="comment"

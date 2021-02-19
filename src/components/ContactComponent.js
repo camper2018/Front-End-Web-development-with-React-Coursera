@@ -38,11 +38,13 @@ class Contact extends Component {
             </BreadcrumbItem>
             <BreadcrumbItem active>Contact Us</BreadcrumbItem>
           </Breadcrumb>
+
           <div className="col-12">
             <h3>Contact Us</h3>
             <hr />
           </div>
         </div>
+
         <div className="row row-content">
           <div className="col-12">
             <h3>Location Information</h3>
@@ -76,9 +78,9 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-              <a role="button" className="btn btn-info">
+              <button className="btn btn-info">
                 <i className="fa fa-skype"></i> Skype
-              </a>
+              </button>
               <a
                 role="button"
                 className="btn btn-success"
@@ -89,6 +91,7 @@ class Contact extends Component {
             </div>
           </div>
         </div>
+
         <div className="row row-content">
           <div className="col-12">
             <h3>Send us Your Feedback</h3>
@@ -104,6 +107,7 @@ class Contact extends Component {
                   First Name
                 </Label>
                 <Col md={10}>
+                  {/* eslint-disable-next-line */}
                   <Control.text
                     model=".firstname"
                     id="firstname"
@@ -133,6 +137,7 @@ class Contact extends Component {
                   Last Name
                 </Label>
                 <Col md={10}>
+                  {/* eslint-disable-next-line */}
                   <Control.text
                     model=".lastname"
                     id="lastname"
@@ -162,6 +167,7 @@ class Contact extends Component {
                   Contact Tel.
                 </Label>
                 <Col md={10}>
+                  {/* eslint-disable-next-line */}
                   <Control.text
                     model=".telnum"
                     className="form-control"
@@ -193,6 +199,7 @@ class Contact extends Component {
                   Email
                 </Label>
                 <Col md={10}>
+                  {/* eslint-disable-next-line */}
                   <Control.text
                     model=".email"
                     className="form-control"
@@ -219,6 +226,7 @@ class Contact extends Component {
                 <Col md={{ size: 6, offset: 2 }}>
                   <div className="form-check">
                     <Label check>
+                      {/* eslint-disable-next-line */}
                       <Control.checkbox
                         model=".agree"
                         name="agree"
@@ -229,6 +237,7 @@ class Contact extends Component {
                   </div>
                 </Col>
                 <Col md={{ size: 3, offset: 1 }}>
+                  {/* eslint-disable-next-line */}
                   <Control.select
                     model=".contactType"
                     name="contactType"
@@ -244,6 +253,7 @@ class Contact extends Component {
                   Your Feedback
                 </Label>
                 <Col md={10}>
+                  {/* eslint-disable-next-line */}
                   <Control.textarea
                     model=".message"
                     id="message"
