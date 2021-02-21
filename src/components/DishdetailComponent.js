@@ -3,6 +3,7 @@ import { baseUrl } from "../shared/baseUrl";
 import {
   Card,
   CardImg,
+  CardImgOverlay,
   CardText,
   CardBody,
   CardTitle,
@@ -22,9 +23,9 @@ import { Loading } from "./LoadingComponent";
 import { FadeTransform, Fade, Stagger } from "react-animation-components";
 
 // CommentForm Component implementation
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !val || val.length <= len;
-const minLength = (len) => (val) => val && val.length >= len;
+// const required = (val) => val && val.length;
+// const maxLength = (len) => (val) => !val || val.length <= len;
+// const minLength = (len) => (val) => val && val.length >= len;
 
 class CommentForm extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class CommentForm extends Component {
     this.props.postComment(
       this.props.dishId,
       values.rating,
-      values.author,
+      // values.author,
       values.comment
     );
   }
@@ -79,13 +80,13 @@ class CommentForm extends Component {
                   </Control.select>
                 </Col>
               </Row>
-              <Row className="form-group">
+              {/* <Row className="form-group">
                 <Label htmlFor="author" sm={12}>
                   Your Name
                 </Label>
                 <Col sm={12}>
                   {/* eslint-disable-next-line */}
-                  <Control.text
+              {/* <Control.text
                     model=".author"
                     id="author"
                     name="author"
@@ -94,11 +95,11 @@ class CommentForm extends Component {
                     validators={{
                       required,
                       minLength: minLength(3),
-                      maxLength: maxLength(15),
-                    }}
-                  />
+                      maxLength: maxLength(15), */}
+              {/* }} */}
+              {/* /> */}
 
-                  <Errors
+              {/* <Errors
                     className="text-danger"
                     model=".author"
                     show="touched"
@@ -108,8 +109,8 @@ class CommentForm extends Component {
                       maxLength: "Must be 15 characters or less",
                     }}
                   />
-                </Col>
-              </Row>
+                </Col> */}
+              {/* </Row>  */}
               <Row className="form-group">
                 <Label htmlFor="comment" sm={12}>
                   Comment
@@ -147,6 +148,7 @@ class CommentForm extends Component {
 }
 
 function RenderDish(props) {
+  console.log("RenderDish:", props);
   if (props.dish != null) {
     return (
       <div className="col-12 col-md-5 m-1">
@@ -157,12 +159,29 @@ function RenderDish(props) {
           }}
           // When we apply FadeTransform to this card, this card will initially be out of the screen in a small random pop up on to the screen then the card is rendered in the view.
         >
-          <Card key={props.dish.id}>
+          <Card key={props.dish._id}>
             <CardImg
               top
               src={baseUrl + props.dish.image}
               alt={props.dish.name}
             />
+            <CardImgOverlay>
+              <Button
+                outline
+                color="primary"
+                onClick={() =>
+                  props.favorite
+                    ? console.log("Already favorite")
+                    : props.postFavorite(props.dish._id)
+                }
+              >
+                {props.favorite ? (
+                  <span className="fa fa-heart"></span>
+                ) : (
+                  <span className="fa fa-heart-o"></span>
+                )}
+              </Button>
+            </CardImgOverlay>
             <CardBody>
               <CardTitle>{props.dish.name}</CardTitle>
               <CardText>{props.dish.description}</CardText>
@@ -200,6 +219,7 @@ function RenderDish(props) {
 //   );
 // }
 function RenderComments({ comments, postComment, dishId }) {
+  // console.log("Render comments: ", comments, postComment, dishId);
   if (comments != null)
     return (
       <div className="col-12 col-md-5 m-1">
@@ -208,17 +228,22 @@ function RenderComments({ comments, postComment, dishId }) {
           <Stagger in>
             {comments.map((comment) => {
               return (
-                <Fade in>
-                  <li key={comment.id}>
+                <Fade in key={comment._id}>
+                  <li>
                     <p>{comment.comment}</p>
-                    <p>
-                      -- {comment.author} ,{" "}
-                      {new Intl.DateTimeFormat("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "2-digit",
-                      }).format(new Date(Date.parse(comment.date)))}
-                    </p>
+                    <p>{comment.rating} stars</p>
+                    {comment.author ? (
+                      <p>
+                        -- {comment.author.firstname} {comment.author.lastname},{" "}
+                        {new Intl.DateTimeFormat("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "2-digit",
+                        }).format(new Date(Date.parse(comment.updatedAt)))}
+                      </p>
+                    ) : (
+                      <p></p>
+                    )}
                   </li>
                 </Fade>
               );
@@ -247,7 +272,8 @@ const DishDetail = (props) => {
         </div>
       </div>
     );
-  } else if (props.dish !== null) {
+  } else if (props.dish != null) {
+    console.log("DishDetail:", props);
     return (
       <div className="container">
         <div className="row">
@@ -263,11 +289,15 @@ const DishDetail = (props) => {
           </div>
         </div>
         <div className="row">
-          <RenderDish dish={props.dish} />
+          <RenderDish
+            dish={props.dish}
+            favorite={props.favorite}
+            postFavorite={props.postFavorite}
+          />
           <RenderComments
             comments={props.comments}
             postComment={props.postComment}
-            dishId={props.dish.id}
+            dishId={props.dish._id}
           />
         </div>
       </div>

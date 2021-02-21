@@ -40,6 +40,7 @@ function RenderCard({ item, isLoading, errorMsg }) {
   }
 }
 function Home(props) {
+  // console.log("props:", props);
   return (
     <div className="container">
       <div className="row align-items-start">

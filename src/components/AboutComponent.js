@@ -30,7 +30,7 @@ function RenderLeader(props) {
   );
 }
 function About(props) {
-  console.log("props:", props);
+  // console.log("props:", props);
   if (props.leaders.isLoading) {
     return (
       <div className="container">
@@ -127,8 +127,8 @@ function About(props) {
             <Media list>
               <Stagger in>
                 {props.leaders.leaders.map((leader) => (
-                  <Fade in>
-                    <RenderLeader leader={leader} key={leader.id} />
+                  <Fade in key={leader._id}>
+                    <RenderLeader leader={leader} />
                   </Fade>
                 ))}
               </Stagger>
